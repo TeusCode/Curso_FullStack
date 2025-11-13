@@ -1,0 +1,82 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    font-family: Helvetica, sans-serif;
+}
+
+header {
+    margin-top: 15px;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.651);
+}
+
+main {
+    margin: auto;
+    margin-top: 30px;
+    padding: 30px;
+    width: 500px;
+    background-color: white;
+    margin-bottom: 30px;
+}
+
+main>h3 {
+    color: rgba(0, 0, 0, 0.822);
+}
+
+main>.paragrafo {
+    color: rgb(77, 76, 76);
+}
+
+#formCarteirinha>label {
+    color: rgb(53, 52, 52);
+}
+
+#formCarteirinha>label>input {
+    padding: 10px;
+    margin: 5px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+div#cards {
+    width: 100%;
+}
+
+div#cards>section {
+    margin: auto;
+    width: 8.6cm;
+    height: 5cm;
+    background-color: black;
+    border-radius: 5px;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+div#cardFront {
+    padding: 10px;
+    color: white;
+    border: 2px solid green;
+    border-radius: 8px;
+    height: 3.5cm;
+}
+
+#cardFront>ul>li,
+#cardBack>ul>li {
+    display: inline-block;
+    list-style-position: inside;
+    color: green;
+    font-size: 13px;
+}
+
+div#cardBack {
+    color: white;
+    background-color: green;
+}
+
+footer {
+    margin-top: 30px;
+    text-align: center;
+}

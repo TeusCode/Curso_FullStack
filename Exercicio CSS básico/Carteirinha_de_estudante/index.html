@@ -5,28 +5,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carteirinha!</title>
-    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <header>
-        <h1>Que tal gerar uma carteirinha de estudante ilustrativa da Faculdade Descomplica?</h1>
+        <h1>Carteirinha Estudantil Ilustrativa</h1>
+        <br>
     </header>
+    <hr>
     <main>
-        <hr>
-        <p>Basta preencher os campos e imprimir sua versão de brincadeira!a.</p>
-        <p><Strong>Aviso Importante:</Strong><br> Não insira dados reais. Este projeto é apenas didático e existe para
+        <h3>Preencha o formulário:</h3>
+        <br>
+        <p class="paragrafo">Basta preencher os campos e imprimir sua versão de brincadeira!a.</p>
+        <br>
+        <p class="paragrafo"><Strong>Aviso Importante:</Strong><br> Não insira dados reais. Este projeto é
+            apenas didático e existe para
             praticar habilidades de desenvolvimento web, nada aqui tem valor oficial.</p>
-        <p>Com tudo isso em mente… divirta-se!</p>
-        <form action="">
-            <input type="text" placeholder="Nome do aluno">
+        <br>
+        <p class="paragrafo">Com tudo isso em mente… divirta-se!</p>
+        <br>
+        <form id="formCarteirinha" action="">
+            <label for="nome">Nome Completo:<input id="nome" type="text" placeholder="Nome do aluno"></label>
             <br>
-            <input type="text" placeholder="Curso"> <br>
-            <input type="text" placeholder="CPF de mentirinha">
+
+            <label for="curso">Curso:<input id="curso" type="text" placeholder="Curso"></label>
             <br>
-            <input type="text" placeholder="Número da matrícula">
+
+
+            <label for="matricula">RA / Matricula:<input id="matricula" type="text"
+                    placeholder="Número da matrícula"></label>
             <br>
-            <input type="text" placeholder="Data de Ingresso">
+
+
+            <label for="dataInicio">Ingresso: <input id="dataInicio" type="date" placeholder="Data de Ingresso"></label>
             <br>
             Foto para a carteirinha:
             <br>
@@ -34,28 +47,35 @@
         </form>
         <br>
         <hr>
-        <section>
-            <div id="cardFront">
-                <img src="" alt="">
-                <ul>
-                    <li>Nome:</li>
-                    <li>Curso</li>
-                    <li>CPF</li>
-                    <li>Ingresso</li>
-                    <li>Matrícula</li>
-                    <li>Validade</li>
-                </ul>
-            </div>
-        </section>
-        <section>
-            <div id="cardBack">
-                <img src="" alt="">
-                <ul>
-                    <li>Curso</li>
-                    <img src="" alt="QR CODE com informações do card!">
-                </ul>
-            </div>
-        </section>
+        <br>
+        <div id="cards">
+            <section>
+                <div id="cardFront">
+                    <img width="50px" src="assets/descomplica.png" alt="">
+                    <h6 style="width: 200px; display: inline-block;">Centro Universitário União das Américas Descomplica
+                    </h6>
+                    <br>
+                    <br>
+                    <ul>
+                        <li>Nome:</li> <br>
+                        <li>Curso</li> <br>
+                        <li>Ingresso</li>
+                        <li>Matrícula</li>
+                        <li>Validade</li>
+                    </ul>
+                </div>
+            </section>
+            <br>
+            <section>
+                <div id="cardBack">
+                    <img src="" alt="">
+                    <ul>
+                        <li>Curso</li>
+                        <img src="" alt="QR CODE com informações do card!">
+                    </ul>
+                </div>
+            </section>
+        </div>
     </main>
     <hr>
     <footer>
