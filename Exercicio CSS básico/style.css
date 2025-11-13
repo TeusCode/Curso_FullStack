@@ -1,0 +1,48 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    background-color: black;
+}
+
+#card {
+    background: url("./assets/backgorund.png");
+    background-size: cover;
+    margin: auto;
+    margin-top: 40vh;
+    width: 400px;
+    height: 200px;
+    box-sizing: border-box;
+}
+
+h1 {
+    margin: 0px;
+}
+
+#titulo {
+    padding: 20px;
+    padding-left: 30px;
+    padding-bottom: 10px;
+}
+
+#redesSociais {
+    margin: 0px;
+    font-size: 14px;
+    list-style-position: inside;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.instagram {
+    list-style-image: url('./assets/Insta.png');
+}
+
+.twitter {
+    list-style-image: url('./assets/Twitter.png');
+}
+
+.youtube {
+    list-style-image: url('./assets/Youtube.png');
+}
