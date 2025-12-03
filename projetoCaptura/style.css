@@ -1,0 +1,89 @@
+ * {
+            margin: 0px;
+            padding: 0px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background-color: black;
+        }
+
+        #cabecario {
+            background-color: aqua;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        main {
+            min-width: 1000px;
+            background-color: blueviolet;
+            background-image: url(assets/people.jpg);
+            background-position: center;
+            background-size: cover;
+            overflow: hidden;
+        }
+
+        #inscrever {
+            background-color: rgba(255, 255, 255, 0.618);
+            float: right;
+            margin: 20px;
+            border-radius: 5px;
+            width: 270px;
+            height: 80%;
+            padding: 20px;
+        }
+
+        form {
+            text-align: center;
+        }
+
+        .inputs {
+            width: 90%;
+            height: 27px;
+            margin-top: 10px;
+            border: 0px;
+            border-radius: 5px;
+            padding-left: 5px;
+        }
+
+        .buttons {
+            width: 90%;
+            height: 30px;
+            margin-top: 15px;
+            background-color: rgb(1, 131, 131);
+            border: 0px;
+            border-radius: 5px;
+            color: white;
+        }
+        .buttons:hover{
+            background-color: rgb(0, 163, 163);
+            cursor: pointer;
+        }
+
+        footer {
+            background-color: rgb(20, 20, 20);
+            height: 250px;
+        }
+
+        #descricao {
+            display: inline-block;
+            width: 60%;
+            padding: 10px;
+        }
+
+        #autor {
+            display: inline-block;
+        }
+
+        #footerAutor {
+            color: white;
+            width: 500px;
+            margin: auto;
+            padding: 5px;
+            padding-top: 27px;
+        }
+        .container{
+            width: 1000px;
+            margin: auto;
+        }
