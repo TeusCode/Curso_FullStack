@@ -10,19 +10,19 @@
 //1.1 Lista de tarefas
 let tarefas = [
     {
-        id:908342,
-        descricao:"Lavar louças",
-        concluida:true,
+        id: 908342,
+        descricao: "Lavar louças",
+        concluida: true,
     },
     {
-        id:32344,
-        descricao:"Tirar o lixo",
-        concluida:false,
+        id: 32344,
+        descricao: "Tirar o lixo",
+        concluida: false,
     },
     {
-        id:238734,
-        descricao:"Dar banho no cachorro",
-        concluida:false,
+        id: 238734,
+        descricao: "Dar banho no cachorro",
+        concluida: false,
     }
 
 ];
@@ -32,6 +32,6 @@ console.log(tarefas[1].descricao);
 
 //1.3 Adicionar mais uma tarefa
 tarefas.push({
-    id:2836187,
-    descricao:"Limpar o quarto",
+    id: 2836187,
+    descricao: "Limpar o quarto",
 })
