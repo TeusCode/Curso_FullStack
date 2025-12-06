@@ -12,7 +12,7 @@
 
 
 
-//1.1 - Criando Objeto e atribuindo valores:
+//1.1 Criando Objeto e atribuindo valores:
 let perfil = {
     nome: "Mateus",
     idade: 22,
