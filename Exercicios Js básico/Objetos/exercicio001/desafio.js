@@ -43,11 +43,12 @@ Desafio Bônus (Lógica Condicional): Crie uma função chamada checarSenioridad
 */
 
 //Estrutura de Dados Base
-let devProfile = { 
+// 1.1
+let devProfile = {
     nome: "Mateus",
     idade: 22,
 
-    localizacao: {
+    localizacao: { //3.1
         pais: "Brasil",
         cidade: "São Paulo",
         bairro: "bairro tal...",
@@ -55,53 +56,80 @@ let devProfile = {
         numero: "4534 A",
     },
 
-        listaLivros:[
-            {
-                titulo:"O Homen de giz",
-                categoria:"Terror",
-            },
+    listaLivros: [ //3.4
+        {
+            titulo: "O Homen de giz",
+            categoria: "Terror",
+        },
 
-            {
-                titulo:"As outras pessoas",
-                categoria:"Terror",
-            },
+        {
+            titulo: "As outras pessoas",
+            categoria: "Terror",
+        },
 
-            {
-                titulo:"A droga da obediência",
-                categoria:"Suspense",
-            }
-        ],
+        {
+            titulo: "A droga da obediência",
+            categoria: "Suspense",
+        }
+    ],
 
-        cursosCompletos:[
-            {
-                titulo:"Técnico em fundição",
-                categoria:"Técnico",
-            },
+    cursosCompletos: [ //3.4
+        {
+            titulo: "Técnico em fundição",
+            categoria: "Técnico",
+        },
 
-            {
-                titulo:"Aprendizagem em EletroMecânica",
-                categoria:"Técnico",
-            },
+        {
+            titulo: "Aprendizagem em EletroMecânica",
+            categoria: "Técnico",
+        },
 
-            {
-                titulo:"Engenharia da Computação",
-                categoria:"Superior",
-            },
+        {
+            titulo: "Engenharia da Computação",
+            categoria: "Superior",
+        },
 
-        ],
+    ],
 
-        apresentarSe: function ()
-            {return `Olá meu nome é ${this.nome}, tenho ${this.idade} e moro em ${this.localizacao.cidade}`},
+    apresentarSe: function () { return `Olá meu nome é ${this.nome}, tenho ${this.idade} e moro em ${this.localizacao.cidade}` }, //2.3
 
-    }
+}
 
 //Parte 1: Manipulação e Métodos (Ações no Objeto)
 //Ajuste de Dados:
 
-devProfile.contatoEmail = "mateus@gmail.com";
-devProfile.idade = 23;
+devProfile.contatoEmail = "mateus@gmail.com"; //1.4
+devProfile.idade = 23; //1.5
 
-devProfile.hardSkills = ["Excel", "Power Point", "World"];
+devProfile.hardSkills = ["Excel", "Power Point", "World"]; //2.1
 
-console.log(devProfile.apresentarSe())
+console.log(devProfile.apresentarSe()) //2.3
 
+// Parte 2: Acessos e Verificação (Testando as Chaves)
+console.log(`Nome: ${devProfile.nome} \nIdade: ${devProfile.idade}`) //1.2
+
+let chaveLocal = devProfile['localizacao'] //1.3
+
+console.log(chaveLocal) //1.3
+
+console.log(chaveLocal.endereço) //3.2
+
+console.log(devProfile.hardSkills[1]) //2.2
+
+// Parte 3: Iteração e Lógica (Processamento de Dados)
+
+for (let i in devProfile) {
+    console.log(devProfile[i]) //3.3
+}
+
+for (let i of devProfile.cursosCompletos) {
+    console.log(`Titulo: ${i.titulo}`)
+    console.log(`Categoria: ${i.categoria}`) //3.5
+}
+
+
+// Desafio Bônus (Lógica Condicional): Crie uma função chamada checarSenioridade(perfil) que recebe o objeto devProfile e usa uma condicional (ex: if/else) para retornar:
+
+// "Sênior" se a idade for maior que 30 E o número de habilidades for maior que 5.
+
+// "Júnior/Pleno" caso contrário.
