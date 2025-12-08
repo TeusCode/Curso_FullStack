@@ -27,33 +27,32 @@ let tarefas = [
 
 
 //2.1 Checagem simples
-if (tarefas[2]['concluida'] === true) // ou if(tarefas[2].concluida === true)
+if (tarefas[2]['concluida']) // ou if(tarefas[2].concluida === true)
     console.log("Tarefa Concluida!")
 
 else
     console.log("Tarefa pendente!")
 
+//2.2 Função status
+function verificarStatus(tarefa) {
+    let booleano = tarefa.concluida;
+        switch (booleano) {
+            case true:
+                return "Concluida!" //Como há o return não tem necessídade de break
 
-//2.3 Função status
-function verificarStatus(status, n) {
-    let booleano = status[n].concluida;
-    switch (booleano) {
-        case true:
-            console.log("Concluida!")
-            break;
-
-        case false:
-            console.log("Pendente!");
-            break;
+            case false:
+                return "Pendente!";
     }
 }
 
-verificarStatus(tarefas, 0)
+
+//2.3 Aplicar status
+console.log(verificarStatus(tarefas[0]))
 
 //2.4 Condicional Combinada
-let statusTarefa = tarefas[0]['concluida'];
-let idTarefa = tarefas[0]['id'];
+let tarefa = tarefas[0]['concluida'];
+let id = tarefas[0]['id'];
 
-if (statusTarefa != true && idTarefa < 0) {
-    console.log("Esta tarefa não existe!")
-} else { console.log(`A tarefa foi concluída e seu id é ${idTarefa}`) }
+if (!tarefa && id > 0) { //if (statusTarefa != true && idTarefa > 0)
+    console.log("Tarefa está pendente!")
+} else { console.log("Tarefa já foi concluida!") }
