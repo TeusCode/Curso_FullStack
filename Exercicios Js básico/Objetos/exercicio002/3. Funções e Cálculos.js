@@ -5,3 +5,4 @@
 // 3.3. Execução	Chame a função calculaTotal('leite', 'pao') e imprima o resultado.
 
 // 3.4. Função com Condicional	Modifique a função calculaTotal. Ela deve primeiro verificar se os preços de ambos os itens existem no objeto produtos. Se algum preço não for encontrado, a função deve retornar a string "Erro: Item não cadastrado."
+

@@ -34,4 +34,12 @@ console.log(tarefas[1].descricao);
 tarefas.push({
     id: 2836187,
     descricao: "Limpar o quarto",
+    concluida: true,
 })
+
+//1.4 Propriedade Dinâmica 
+let chave = 'descricao';
+
+tarefas[chave]
+console.log(tarefas[0][chave])
+
