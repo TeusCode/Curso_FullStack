@@ -126,7 +126,8 @@ for (let i of devProfile.cursosCompletos) {
     console.log(`Titulo: ${i.titulo}`)
     console.log(`Categoria: ${i.categoria}`) //3.5
 }
-//Bônus
+
+//bônus
 let habilidades = devProfile.hardSkills
 
 function checarSenioridade (){
@@ -135,3 +136,9 @@ function checarSenioridade (){
 }
 
 checarSenioridade()
+
+// Desafio Bônus (Lógica Condicional): Crie uma função chamada checarSenioridade(perfil) que recebe o objeto devProfile e usa uma condicional (ex: if/else) para retornar:
+
+// "Sênior" se a idade for maior que 30 E o número de habilidades for maior que 5.
+
+// "Júnior/Pleno" caso contrário.
