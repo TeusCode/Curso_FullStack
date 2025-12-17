@@ -19,3 +19,19 @@ Este exercício garantirá que você pratique a separação de responsabilidades
 
 
 Qualquer passo que travar, é só pedir ajuda! */
+
+let inputTarefa = document.getElementById('inputTarefa');
+let listaTarefas = document.getElementById('listaTarefas');
+
+
+function addTarefa() {
+    if (inputTarefa.value == "")
+        return alert("Adicione uma tarefa!")
+
+    listaTarefas.innerHTML += `<li onclick="red(this)"> <input type="checkbox"> ${inputTarefa.value} </li>`
+    console.log(`A tarefa: ${inputTarefa.value} foi adicionada!`)
+}
+
+function red(elemento) {
+    elemento.strike();
+}
