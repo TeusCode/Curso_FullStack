@@ -27,7 +27,7 @@ tituloH3.addEventListener('click', () => {
 
     else {
         body.style.backgroundColor = "white"
-        th3.style.color = "black";
+        tituloH3.style.color = "black";
     }
 })
 
@@ -124,4 +124,4 @@ function digitando() {
     atualizarInterface()
 }
 
-boxText.addEventListener('keyup', digitando)
+boxText.addEventListener('input', digitando)
