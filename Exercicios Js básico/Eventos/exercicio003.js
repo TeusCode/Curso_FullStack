@@ -40,8 +40,26 @@ tituloH3.addEventListener('click', () => {
 const btnClique = document.getElementById("button2");
 const displayContador = document.getElementById("qntCliques");
 let totalCliques = 0
+let parImpar = totalCliques % 2
+let multiplo10 = totalCliques % 10
+
+
+function validarNumero() {
+    parImpar = totalCliques % 2
+
+    switch (parImpar) {
+        case 0:
+            displayContador.style.color = "red"
+            break;
+        default:
+            displayContador.style.color = "blue"
+    }
+
+}
+
 
 function clicar() {
+    validarNumero()
     totalCliques++
     displayContador.innerHTML = totalCliques
 
@@ -82,7 +100,7 @@ bntInterativo.addEventListener('mouseout', foraBtn);
 bntInterativo.addEventListener('click', clickBtn);
 
 /*
-Interação com Formulário (Evento input)
+5. Interação com Formulário (Evento input)
 */
 
 let boxText = document.getElementById("boxText");

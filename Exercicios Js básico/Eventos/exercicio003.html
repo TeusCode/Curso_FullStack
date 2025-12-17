@@ -10,27 +10,29 @@
 <body>
     <p>Exercicio 1. (alert)</p>
 
-    <button id="button1">Chamar alerta</button>
+    <button id="button1" style="user-select: none">Chamar alerta</button>
 
     <p>Exercicio 2. Alternancia de estilo</p>
-    <h3 id="h3">Clique aqui! (mudar fundo!)</h3>
+    <h3 id="h3" style="user-select: none">Clique aqui! (mudar fundo!)</h3>
 
     <p>Exercicio 3. Contador de cliques</p>
-    <button id="button2">Marcar clique</button>
+    <button id="button2" style="user-select: none">Marcar clique</button>
 
-    <span id="qntCliques">0</span>
+    <span id="qntCliques" style="user-select: none">0</span>
 
     <p>Exercicio 4. (Eventos mouseover e mouseout)</p>
 
-    <button id="button3" style="background-color: brown; color:white; padding: 10px; border-radius: 5px; border: 0px;">Clique
+    <button id="button3"
+        style="user-select: none ;background-color: brown; color:white; padding: 10px; border-radius: 5px; border: 0px;">Clique
         aqui!</button>
 
     <p>Exercicio 5. Interação com Formulário (Evento input)</p>
-    <input type="text" id="boxText">
-    <input onclick="aumentarFont()" type="button" value="+">
-    <input onclick="diminuirFont()" type="button" value="-">
-    <span>O tamanho da fonte é<span id="tamanhoFonte"> 16</span> </span>
-    <p id="conteudo"></p>
+    <input type="text" id="boxText" style="user-select: none">
+    <input style="user-select: none" onclick="aumentarFont()" type="button" value="+">
+    <input style="user-select: none" onclick="diminuirFont()" type="button" value="-">
+    <span style="user-select: none">O tamanho da fonte é<span style="user-select: none" id="tamanhoFonte"> 16</span>
+    </span>
+    <p id="conteudo" style="user-select: none"></p>
 
     <script src="exercicio003.js"></script>
 </body>
