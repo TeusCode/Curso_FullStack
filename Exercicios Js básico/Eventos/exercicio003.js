@@ -41,7 +41,6 @@ const btnClique = document.getElementById("button2");
 const displayContador = document.getElementById("qntCliques");
 let totalCliques = 0
 let parImpar = totalCliques % 2
-let multiplo10 = totalCliques % 10
 
 
 function validarNumero() {
@@ -56,7 +55,6 @@ function validarNumero() {
     }
 
 }
-
 
 function clicar() {
     validarNumero()
