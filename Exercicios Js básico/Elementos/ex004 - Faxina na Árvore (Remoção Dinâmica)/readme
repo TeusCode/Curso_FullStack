@@ -1,0 +1,8 @@
+4. Faxina na Árvore (Remoção Dinâmica)
+
+Cenário: Uma lista de tarefas.
+
+
+O Desafio: Crie uma lógica onde, ao clicar em uma tarefa (li), ela verifique se possui um elemento filho (como um ícone de check). Se tiver, o script deve remover esse filho específico (removeChild). Se não tiver, o script deve remover a própria tarefa da lista (parentElement.removeChild).
+
+Objetivo: Praticar a remoção de elementos baseada em condições de parentesco.

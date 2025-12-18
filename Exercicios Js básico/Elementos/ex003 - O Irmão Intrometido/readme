@@ -1,0 +1,6 @@
+3. O "Irmão" Intrometido
+Cenário: Você tem um formulário com vários campos de <input>. Abaixo de cada input, existe um <span> vazio para mensagens de erro.
+
+O Desafio: Quando o input perder o foco (blur) e estiver vazio, o script deve encontrar o próximo elemento irmão (nextElementSibling) daquele input e escrever "Campo obrigatório" dentro dele.
+
+Objetivo: Navegar lateralmente na árvore sem precisar selecionar o span pelo ID.

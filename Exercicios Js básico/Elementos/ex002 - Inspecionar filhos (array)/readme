@@ -1,0 +1,6 @@
+2. O Inspetor de "Filhos" (Array-like)
+Cenário: Você tem uma <ul> com 5 itens (<li>).
+
+O Desafio: Crie uma função que, ao ser executada, percorra todos os filhos diretos (children) dessa lista. Se o conteúdo de texto do filho for "Urgente", adicione uma borda amarela a ele.
+
+Relação com a Faculdade: Lembre-se que children retorna uma coleção. Tente pensar em como você usaria um laço de repetição (for) para iterar sobre essa estrutura, assim como faria com um array em C ou Python.
