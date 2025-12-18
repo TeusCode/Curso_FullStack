@@ -1,0 +1,6 @@
+1. O Localizador de "Pai"
+Cenário: Você tem uma lista de produtos e cada produto tem um botão "Remover".
+
+O Desafio: Ao clicar no botão, sua função deve identificar quem é o pai direto (parentElement) daquele botão (que seria o card ou a li do produto) e mudar a cor de fundo apenas desse pai para vermelho.
+
+Objetivo: Praticar como subir um nível na árvore do DOM a partir de um evento disparado por um filho.
