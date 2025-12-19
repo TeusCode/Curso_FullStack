@@ -5,20 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exercicio 03</title>
+    <style>
+        *{
+            margin:0px;
+        }
+        span{
+            display: block;
+        }
+        p{
+            padding: 10px;
+        }
+    </style>
 </head>
 
 <body>
     <h1>Perguntas Aleatórias</h1>
 
-    <p>Quantos anos você tem? <input type="text"></p>
+    <p>Quantos anos você tem? </p><input onblur="desfoque(this)" type="text">
     <span></span>
-    <p>Você sabe inglês? <input type="text"></p>
+    <p>Você sabe inglês? </p><input onblur="desfoque(this)" type="text">
     <span></span>
-    <p>Seus pais, sabem ingês? <input type="text"></p>
+    <p>Seus pais, sabem ingês? </p><input onblur="desfoque(this)" type="text">
     <span></span>
-    <p>Já pensou em trabalhar no exterior? <input type="text"></p>
+    <p>Já pensou em trabalhar no exterior?</p> <input onblur="desfoque(this)" type="text">
     <span></span>
-    <p>Você gosta de golfinhos? <input type="text"></p>
+    <p>Você gosta de golfinhos? </p><input onblur="desfoque(this)" type="text">
     <span></span>
 
     <script src="script.js"></script>
