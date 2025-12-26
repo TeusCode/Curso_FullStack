@@ -1,14 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Página de sorteio</title>
 </head>
 
 <body>
-    <script src="script.js"></script>
+    <input onkeyup="addNome(event)" id="nome" type="text">
+    <button onclick="addNome()">Adicionar</button>
+    <button onclick="sortear()">Sortear</button>
+    <button onclick="limparDisplay()">Limpar Lista</button>
+    <div id="content">
+
+    </div>
+
+    <script>
+        let listaNomes = []
+        let display = document.getElementById('content')
+        let nome = document.getElementById('nome')
+
+
+        function addNome(event) {
+            if (event.key === 'Enter') {
+                let inputName = nome.value
+                if (inputName != '') {
+                    listaNomes.push(inputName)
+                    display.innerHTML += ` ${inputName}<br>`
+                    nome.value = ''
+                    nome.focus()
+                } else {
+                    return alert('O campo está vazio!')
+                }
+            }
+        }
+
+        function limparDisplay() {
+            listaNomes = ['']
+            display.innerHTML = ''
+            nome.value = ''
+            alert("A lista foi limpa!")
+        }
+
+        function sortear() {
+            if (listaNomes != '') {
+                let quantidadeNomes = listaNomes.length
+                let indexSorteado = Math.floor(Math.random() * quantidadeNomes)
+                let pessoaEscolhida = listaNomes[indexSorteado]
+
+                display.innerHTML = `A pessoa sorteada foi ${pessoaEscolhida}`
+
+                console.log(`A pessoa sorteada foi ${pessoaEscolhida}`)
+            } else {
+                return alert("A lista de sorteio está vazia!")
+            }
+        }
+
+    </script>
 
 </body>
 
