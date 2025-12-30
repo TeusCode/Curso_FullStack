@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sortear números:</title>
+</head>
+
+<body>
+    <h1>Sorteador de números:</h1>
+    <p>Digite um valor inicial (min) e um valor final (max), será gerado um sorteio do intervalo desses números</p>
+
+    <input type="number" onfocus="limparCampos(this)" required placeholder="Mínimo" id="min">
+    <input type="number" onfocus="limparCampos(this)" required placeholder="Máximo" id="max">
+    <button onclick="sortear()">Sortear</button>
+
+    <h2 id="display">...</h2>
+
+
+    <script>
+        const MIN = document.getElementById('min');
+        const MAX = document.getElementById('max');
+        const DISPLAY = document.getElementById('display');
+
+        function limparCampos(e) {
+            if (DISPLAY.textContent != '...') {
+                DISPLAY.textContent = '...'
+                e.value = ''
+            }
+        }
+
+
+        function sortear() {
+            let minString = MIN.value;
+            let maxString = MAX.value;
+
+            //Validação I:
+            if (maxString === '' || minString === '') {
+                alert("Preencha os campos!")
+                MIN.value = ''
+                MAX.value = ''
+                return;
+            }
+
+            let min = Number(MIN.value);
+            let max = Number(MAX.value);
+
+            //Validação II:
+            if (min > max) {
+                alert("Valor minimo encontra-se maior que o valor máx!")
+                MIN.value = ''
+                MAX.value = ''
+                return;
+            }
+
+            let resultado = Math.floor(Math.random() * (max - min + 1)) + min
+
+            console.log(resultado)
+
+            return DISPLAY.textContent = `O número sorteado no invervalo de ${min} e ${max} foi: ${resultado}`
+        }
+
+    </script>
+
+</body>
+
+</html>
