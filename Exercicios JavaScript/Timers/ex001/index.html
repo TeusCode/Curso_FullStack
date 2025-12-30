@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafeteira</title>
+</head>
+
+<body>
+    <script>
+        //Função de fazer café que pede o tempo para o café ficar pronto
+        console.log("Bem vindo a cafeteira!")
+        console.log("para fazer café, digite fazerCafe()")
+        console.log("")
+        console.log("")
+
+        function fazerCafe() {
+
+            setTimeout(() => {
+                console.log("Passo 1: Colocando o pó no coador... (2s)");
+            }, 2000)
+
+            setTimeout(() => {
+                console.log("Passo 2: Água quente adicionada... (5s)")
+            }, 5000)
+
+            setTimeout(() => {
+                console.log("☕ Café finalizado! (8s)")
+            }, 8000)
+        }
+
+        fazerCafe()
+        console.log("Estou fazendo um cafézinho só um momento...")
+    </script>
+</body>
+
+</html>
