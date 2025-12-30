@@ -8,7 +8,10 @@
 </head>
 
 <body>
-    <input onkeyup="addNome(event)" id="nome" type="text">
+    <h1>Sorteio de nomes</h1>
+    <p>Adicione o nome dos participantes no campo de texto abaixo:</p>
+
+    <input onkeyup="addNome(event)" placeholder="Digite seu nome" id="nome" type="text">
     <button onclick="addNome()">Adicionar</button>
     <button onclick="sortear()">Sortear</button>
     <button onclick="limparDisplay()">Limpar Lista</button>
