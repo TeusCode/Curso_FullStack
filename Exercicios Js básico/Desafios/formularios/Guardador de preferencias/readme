@@ -1,0 +1,8 @@
+Exercício: O Guardador de Preferências
+O Cenário
+Imagine que o usuário quer que o site "lembre" do nome dele, mesmo depois de fechar a aba ou atualizar a página. Como o Local Storage só aceita texto (strings), vamos usar o JSON para converter objetos.
+
+O Desafio
+Salvar: Crie um pequeno formulário com um campo de texto para o "Nome". Ao clicar em um botão "Salvar", você deve criar um objeto JS com esse nome, transformá-lo em string (JSON) e guardar no Local Storage.
+
+Recuperar: Ao carregar a página, o script deve verificar se existe algo guardado. Se existir, ele deve transformar de volta em objeto e exibir uma mensagem: "Bem-vindo de volta, [Nome]!".

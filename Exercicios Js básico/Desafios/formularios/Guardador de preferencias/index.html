@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ficha de inscrição</title>
+    <style>
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        input {
+            display: block;
+            margin-bottom: 5px
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Inscrição para processo seletivo!</h1>
+
+    <input style="width: 200px; height: 30px;" id="nome" type="text" placeholder="Digite seu nome">
+    <input style="width: 200px; height: 30px;" id="idade" type="number" placeholder="Digite sua idade">
+    <input style="width: 200px; height: 30px;" id="email" type="email" placeholder="Digite seu e-mail">
+
+    <button style="width: 200px; height: 30px;" id="btnRegistrar">Salvar</button>
+    <br><br>
+    <button style="width: 200px; height: 30px;" id="limparMemoria">Limpar Memória</button>
+
+    <script>
+        //Seleção de elementos:
+        const inptNome = document.getElementById('nome');
+        const inptIdade = document.getElementById('idade');
+        const inptEmail = document.getElementById('email');
+        const buttonRegistrar = document.getElementById('btnRegistrar');
+        const buttonLimpar = document.getElementById('limparMemoria');
+
+        buttonRegistrar.addEventListener('click', registrar);
+        buttonLimpar.addEventListener('click', limparMemoria)
+
+            
+        function limparInputs() {
+            inptNome.value = ''
+            inptIdade.value = ''
+            inptEmail.value = ''
+        }
+
+        function limparMemoria() {
+            localStorage.clear();
+            limparInputs()
+            console.log('A memória foi limpa!')
+            alert('A memória foi limpa com sucesso!')
+        }
+
+        function registrar() {
+            //Valida se há campos vazios:
+            if (inptNome.value != '' && inptIdade.value != '' && inptEmail.value != '') {
+
+                //Cria o Objeto:
+                let usuario = {
+                    nome: inptNome.value,
+                    idade: inptIdade.value,
+                    email: inptEmail.value
+                }
+
+                //Converte o Objeto em string (JSON):
+                let usuarioString = JSON.stringify(usuario)
+
+                //Guarda no localStorage:
+                localStorage.setItem('usuarioSalvo', usuarioString)
+
+                limparInputs()
+
+                alert("Os dados foram salvos com sucesso!")
+
+            } else {
+                return alert("Preencha todos os campos!")
+            }
+        }
+
+        function saudacao() {
+            //Convertendo String em Objeto:
+            let usuario = JSON.parse(localStorage.getItem('usuarioSalvo'))
+
+            //Validando, se existir algum usuário
+            if (usuario != null) {
+                alert(`Bem-vindo de volta, ${usuario.nome}!`)
+            } else {
+                alert("Seja bem vindo a página!")
+            }
+        }
+
+        saudacao()
+    </script>
+
+</body>
+
+</html>
