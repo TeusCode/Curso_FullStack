@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peru de natal</title>
+</head>
+
+<body>
+    <h1>Timer peru de natal</h1>
+    <button id="btnIniciar">Iniciar</button>
+    <p>Timer: <span id="display"></span></p>
+    <p id="msg"></p>
+
+    <script>
+        const btnIniciar = document.getElementById('btnIniciar');
+        const display = document.getElementById('display');
+        const msg = document.getElementById('msg');
+
+        let count = 0;
+        let intervalo;
+
+        btnIniciar.addEventListener('click', iniciarTimer);
+
+        function iniciarTimer() {
+            msg.textContent = "Peru no forno..."
+
+            intervalo = setInterval(() => {
+                display.innerHTML = " " + count
+                count++
+            },1000)
+
+            window.setTimeout(() => {
+                msg.textContent = "Pré cozimento finalizado..."
+            }, 5000)
+
+            window.setTimeout(() => {
+                msg.textContent = "Retirando do forno..."
+            }, 7000)
+
+            window.setTimeout(() => {
+                msg.textContent = "Retirando papel aluminio..."
+            }, 9000)
+
+            window.setTimeout(() => {
+                msg.textContent = "Voltando ao forno..."
+            }, 11000)
+
+            window.setTimeout(() => {
+                msg.textContent = "Peru no forno..."
+            }, 14000)
+
+            window.setTimeout(() => {
+                msg.textContent = "Peru finalizado!"
+                clearInterval(intervalo)
+            }, 20000)
+        }
+
+
+    </script>
+
+</body>
+
+</html>
