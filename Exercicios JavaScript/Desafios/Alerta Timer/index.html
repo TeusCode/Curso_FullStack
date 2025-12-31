@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alerta</title>
+</head>
+
+<body>
+    <button id="btnIniciar">Iniciar Timer!</button>
+    <script>
+        const btnIniciar = document.getElementById('btnIniciar');
+
+        btnIniciar.addEventListener('click', timer)
+
+        let intervalo;
+
+        function timer() {
+            clearInterval(intervalo)
+
+            intervalo = setInterval(() => {
+                console.log("ALERTA: Atividade Detectada!")
+            }, 2000)
+
+            setTimeout(() => {
+                clearInterval(intervalo)
+                console.log("Sistema seguro. Monitoramento encerrado")
+            }, 10000)
+
+
+        }
+    </script>
+</body>
+
+</html>

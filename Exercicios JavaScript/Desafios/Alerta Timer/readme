@@ -1,0 +1,34 @@
+Exercício: O Semáforo de Alerta
+Objetivo: Criar um sistema lógico que simula um alerta de segurança intermitente que se desliga automaticamente após um período.
+
+O Desafio
+Escreva um script que realize as seguintes ações:
+
+O Alerta: Assim que o script for executado, ele deve começar a exibir a mensagem "ALERTA: Atividade detectada!" no console a cada 2 segundos de forma contínua.
+
+O Temporizador: Crie uma lógica para que, após exatos 10 segundos de execução total, o alerta pare de ser exibido.
+
+A Mensagem Final: No exato momento em que o alerta for interrompido, exiba uma única mensagem final: "Sistema seguro. Monitoramento encerrado."
+
+
+Fase 2
+
+Exercício: O Cronômetro de Lançamento
+Objetivo: Criar um contador regressivo visual que interage com o HTML e muda de estado quando termina.
+
+O Desafio
+Crie uma página HTML com um título (<h1>), um botão de "Iniciar Lançamento" e uma área onde o número aparecerá.
+
+A Contagem: Ao clicar no botão, o título deve mudar para "Iniciando em..." e um contador deve aparecer na tela começando em 10 e diminuindo de 1 em 1 a cada segundo.
+
+O Visual: * Exiba os números (10, 9, 8...) em um elemento HTML (como uma div ou p).
+
+Enquanto a contagem estiver rodando, o botão de "Iniciar" deve ficar desabilitado (para o usuário não clicar várias vezes).
+
+O Lançamento: Quando o contador chegar a 0:
+
+O intervalo deve ser parado.
+
+O texto na tela deve mudar para: "FOGO! 🚀".
+
+Após 3 segundos exibindo a mensagem de "FOGO!", a tela deve ser limpa ou voltar ao estado inicial.
