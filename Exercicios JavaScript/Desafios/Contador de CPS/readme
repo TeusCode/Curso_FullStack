@@ -1,0 +1,95 @@
+Exercício: O Desafio CPS (Cliques por Segundo)
+Objetivo: Criar uma ferramenta que mede a velocidade de clique do usuário durante um intervalo de 5 segundos.
+
+O Desafio
+Crie uma interface com um botão grande (o "alvo"), um contador visual de cliques e um cronômetro regressivo.
+
+O Início:
+
+O jogo deve começar apenas quando o usuário der o primeiro clique no botão alvo.
+
+Assim que o primeiro clique ocorrer, um cronômetro de 5 segundos deve iniciar a contagem regressiva.
+
+A Contagem:
+
+Durante esses 5 segundos, cada clique no botão deve incrementar um contador na tela.
+
+O tempo restante (5.0s, 4.9s...) deve ser atualizado visualmente para o usuário (dica: use um setInterval de 100ms para um cronômetro mais fluido).
+
+O Encerramento:
+
+Assim que o tempo chegar a zero, o botão de clique deve ser bloqueado (disabled).
+
+O setInterval deve ser parado.
+
+O sistema deve calcular o CPS (Cliques por Segundo) dividindo o total de cliques por 5.
+
+Exiba o resultado final: "Fim de jogo! Seu CPS foi de X. Total de cliques: Y".
+
+Botão de Reiniciar:
+
+Adicione um botão "Reset" que limpa os contadores, habilita o botão alvo e permite uma nova tentativa.
+
+
+/* Código antigo, primeiro que fiz sozinho:
+
+Bugava bastante, tinha umas gambiarra para fazer funcionar mesmo com bug, fazia coisas desnecessárias
+
+
+
+
+        const areaClique = document.getElementById('areaClique');
+        const display = document.getElementById('qntCliques');
+        const result = document.getElementById('result');
+        const displayTimer = document.getElementById('displayTimer');
+
+        areaClique.addEventListener('click', contador)
+
+        let cliques = 0;
+        let intervalo;
+        let count = parseFloat(10);
+        let timer = false
+
+
+        function reiniciar() {
+            result.innerHTML = ''
+            cliques = 0
+            display.textContent = cliques
+            areaClique.disabled = false
+            timer = false
+            count = 10
+            displayTimer.innerHTML = ``
+        }
+
+        function atualizarContador() {
+            if (timer === false) {
+                intervalo = setInterval(() => {
+                    count -= 0.1
+                    displayTimer.innerHTML = `O tempo restante é ${count.toFixed(1)}`
+                }, 100)
+                timer = true
+                return;
+            }
+        }
+
+        function contador() {
+            atualizarContador()
+            btnReiniciar.disabled = true
+            areaClique.style.backgroundColor = 'rgb(249, 183, 183)'
+            display.textContent = cliques
+            cliques++
+
+            setTimeout(() => {
+                areaClique.disabled = true
+                areaClique.style.backgroundColor = 'rgb(183, 249, 183)'
+                let resultado = cliques / 10
+                result.innerHTML = `Fim de jogo! Seu CPS foi de <mark>${resultado}</mark>. Total de cliques: <mark>${cliques}</mark>`
+                clearInterval(intervalo)
+                timer = false
+                count = 10
+                displayTimer.innerHTML = ``
+                setTimeout(() => {
+                    btnReiniciar.disabled = false
+                }, 10000) //Timer para desbugar o contador, se ele habilitar antes não funciona
+            }, 10000)
+        } */

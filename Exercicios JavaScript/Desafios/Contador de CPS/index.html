@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de cps</title>
+    <style>
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        h3 {
+            text-align: center;
+            user-select: none;
+        }
+
+        #btnClique {
+            width: 150px;
+            height: 150px;
+            background-color: rgb(183, 249, 183);
+            margin: auto;
+            border-radius: 5px;
+            box-sizing: border-box;
+            text-align: center;
+            padding-top: 65px;
+            user-select: none;
+            border: 0px;
+        }
+
+        #qntCliques {
+            padding: 0px;
+            margin: 0px;
+            display: inline-block;
+            user-select: none;
+        }
+
+        #result {
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>Contador de CPS! (Cliques por segundo)</h3>
+
+    <button id="btnReiniciar">Reiniciar</button>
+    <button id="btnClique">
+        <p id="displayCliques">0</p>
+    </button>
+
+    <p id="displayTimer"></p>
+    <p id="resultado"></p>
+
+
+    <script>
+        //Seleção de elmentos HTML:
+        const btnClique = document.getElementById('btnClique');
+        const btnReiniciar = document.getElementById('btnReiniciar');
+        const displayCliques = document.getElementById('displayCliques');
+        const displayTimer = document.getElementById('displayTimer');
+        const resultado = document.getElementById('resultado');
+
+        //Adição dos eventos aos botões:
+        btnClique.addEventListener('click', contador);
+        btnReiniciar.addEventListener('click', reiniciar);
+
+        //Variáveis
+        let intervalo;
+        let timer = false;
+        let count = 10;
+        let cliques = 0;
+
+
+        function contador() {
+            if (timer === false) { //O contador inicia com false
+                timer = true //Fecha a porta, quando surgir clique novamente ele não vai rodar
+
+                btnClique.style.backgroundColor = 'rgb(249, 196, 183)'
+                console.log('Contador iniciado!');
+
+                btnReiniciar.disabled = true;
+
+                intervalo = setInterval(() => {
+                    count -= 0.1
+                    displayTimer.innerHTML = `Tempo restante: ${count.toFixed(1)}`
+                    if (count < 0.1) {
+                        desligarContador()
+                    }
+                }, 100)
+
+            }
+
+            cliques++;
+            displayCliques.innerHTML = cliques;
+        }
+
+
+        function desligarContador() {
+            clearInterval(intervalo);
+            btnReiniciar.disabled = false;
+            btnClique.disabled = true;
+            timer = false
+            resultado.innerHTML = `Fim de jogo! Seu CPS foi de ${cliques / 10}. Total de cliques: ${cliques}`
+        }
+
+        function reiniciar() {
+            count = 10;
+            cliques = 0;
+            btnClique.style.backgroundColor = 'rgb(183, 249, 183)'
+            resultado.innerHTML = '';
+            btnClique.disabled = false
+        }
+
+
+
+
+
+    </script>
+</body>
+
+</html>

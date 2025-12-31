@@ -8,28 +8,48 @@
 </head>
 
 <body>
-    <button id="btnIniciar">Iniciar Timer!</button>
+    <h3 id="titulo">Cronômetro de lançamento</h3>
+    <span id="msg"></span>
+    <br>
+    <br>
+    <button id="btnIniciar">Iniciar lançamento</button>
+
+
+
     <script>
         const btnIniciar = document.getElementById('btnIniciar');
+        const titulo = document.getElementById('titulo');
+        const msg = document.getElementById('msg');
+
+        let intervalo;
+        let count = 10;
 
         btnIniciar.addEventListener('click', timer)
 
-        let intervalo;
 
         function timer() {
-            clearInterval(intervalo)
+            btnIniciar.disabled = true //Desabilita o botão
+
+            titulo.innerHTML = "Lançamento iniciando em..."
 
             intervalo = setInterval(() => {
-                console.log("ALERTA: Atividade Detectada!")
-            }, 2000)
-
-            setTimeout(() => {
-                clearInterval(intervalo)
-                console.log("Sistema seguro. Monitoramento encerrado")
-            }, 10000)
-
-
+                if (count >= 0) {
+                    msg.innerHTML += ' ' + count + ','
+                    count--
+                }
+                else {
+                    clearInterval(intervalo);
+                    msg.innerHTML = "FOGO! 🚀"
+                    setTimeout(() => {
+                        count = 10
+                        msg.innerHTML = ''
+                        titulo.innerHTML = 'Cronômetro de lançamento'
+                        btnIniciar.disabled = false //Reabilita o botão novamente!
+                    }, 3000)
+                }
+            }, 1000)
         }
+
     </script>
 </body>
 
