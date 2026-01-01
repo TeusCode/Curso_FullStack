@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista</title>
+</head>
+
+<body>
+    <ul id="lista" num="5">
+    </ul>
+
+    <script>
+        const lista = document.getElementById('lista');
+        const num = lista.getAttribute('num');
+
+        let conteudo = '';
+        for (let i = 0; i < parseInt(num); i++) {
+            conteudo += `<li> ${i} </li>`
+        };
+
+        lista.innerHTML = conteudo
+
+    </script>
+</body>
+
+</html>
