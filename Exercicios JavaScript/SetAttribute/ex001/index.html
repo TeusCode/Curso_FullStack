@@ -8,15 +8,15 @@
 </head>
 
 <body>
-    <ul id="lista" num="5">
+    <ul id="lista" data-num="9"> <!--Utilitzando data-, torna se possivel utilizar: elemento.dataset.nome -->
     </ul>
 
     <script>
         const lista = document.getElementById('lista');
-        const num = lista.getAttribute('num');
+        const num = parseInt(lista.dataset.num) //Selecionado pelo elemento.dataset.nome, já converti porque ele vem como string, o for até entende, mas é bom deixar convertido para melhor entendimento do código
 
         let conteudo = '';
-        for (let i = 0; i < parseInt(num); i++) {
+        for (let i = 0; i < num; i++) {
             conteudo += `<li> ${i} </li>`
         };
 
