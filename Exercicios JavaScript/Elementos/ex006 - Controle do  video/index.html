@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:,">
     <title>Controles de video</title>
     <style>
         .container {
@@ -31,6 +32,9 @@
             width: 50px;
             padding: 5px;
             user-select: none;
+            background-color: white;
+            margin: 0px;
+            border-radius: 5px;
 
             position: relative;
             top: 80%;
@@ -67,6 +71,8 @@
             <img class="btn" onclick="play()" src="./assets/src/playSvg.svg" alt="">
             <img class="btn" onclick="pause()" src="./assets/src/pauseSvg.svg" alt="">
             <img class="btn" onclick="skip()" src="./assets/src/skipSvg.svg" alt="">
+            <img class="btn" onclick="loop()" src="./assets/src/loopSvg.svg" alt="">
+            <img class="btn" onclick="restart()" src="./assets/src/restartSvg.svg" alt="">
         </div>
         <div class="visual" id="visual1" onclick="overlay()">
             <img class="indicadorVisual" src="" alt="">
@@ -75,9 +81,10 @@
     <script>
         const video = document.getElementById('video1');
         const visual2 = document.getElementById('visual1');
+        const buttons = document.getElementsByClassName('btn');
         let videoOverlay = visual2.children[0];
         let onOff = false;
-
+        let onLoop = false;
 
         function overlay() {
             if (onOff != true) {
@@ -100,7 +107,6 @@
             }
         }
 
-
         function play() {
             video.play();
             onOff = true;
@@ -112,12 +118,28 @@
         }
 
         function skip() {
-            video.currentTime += 15
+            video.currentTime += 60
             videoOverlay.setAttribute("src", "./assets/src/skipSvg.svg")
 
-            setTimeout(()=>{
+            setTimeout(() => {
                 videoOverlay.setAttribute("src", " ");
-            },100)
+            }, 100)
+        }
+
+        function loop() {
+            if (onLoop != true) {
+                video.setAttribute("loop", "")
+                buttons[3].style.backgroundColor = "red"
+                onLoop = true;
+            } else {
+                buttons[3].style.backgroundColor = "white"
+                onLoop = false;
+            }
+        }
+
+        function restart(){
+            video.currentTime = 0;
+            pause()
         }
     </script>
 </body>
