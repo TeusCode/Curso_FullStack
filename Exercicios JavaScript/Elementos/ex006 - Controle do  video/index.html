@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controles de video</title>
+    <style>
+        .container {
+            width: 640px;
+            height: 360px;
+            user-select: none;
+
+            position: relative;
+        }
+
+        .video {
+            width: 100%;
+        }
+
+        .controles {
+            width: 100%;
+            height: 100%;
+            text-align: center;
+
+            position: absolute;
+            top: 0px;
+        }
+
+        .btn {
+            width: 50px;
+            padding: 5px;
+            user-select: none;
+
+            position: relative;
+            top: 80%;
+        }
+
+        .visual {
+            width: 100%;
+            height: 60%;
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .indicadorVisual {
+            width: 100px;
+            opacity: 50%;
+            user-select: none;
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <video preload="auto" class="video" id="video1" src="./assets/src/video.mp4"></video>
+        <div class="controles">
+            <img class="btn" onclick="play()" src="./assets/src/playSvg.svg" alt="">
+            <img class="btn" onclick="pause()" src="./assets/src/pauseSvg.svg" alt="">
+            <img class="btn" onclick="skip()" src="./assets/src/skipSvg.svg" alt="">
+        </div>
+        <div class="visual" id="visual1" onclick="overlay()">
+            <img class="indicadorVisual" src="" alt="">
+        </div>
+    </div>
+    <script>
+        const video = document.getElementById('video1');
+        const visual2 = document.getElementById('visual1');
+        let videoOverlay = visual2.children[0];
+        let onOff = false;
+
+
+        function overlay() {
+            if (onOff != true) {
+
+                videoOverlay.setAttribute("src", "./assets/src/playSvg.svg")
+                play()
+
+                setTimeout(() => {
+                    videoOverlay.setAttribute("src", "")
+                }, 100)
+                console.log("video rodando")
+            } else {
+                videoOverlay.setAttribute("src", "./assets/src/pauseSvg.svg")
+                pause()
+
+                setTimeout(() => {
+                    videoOverlay.setAttribute("src", "")
+                }, 100)
+                console.log("video pausado!")
+            }
+        }
+
+
+        function play() {
+            video.play();
+            onOff = true;
+        }
+
+        function pause() {
+            video.pause();
+            onOff = false;
+        }
+
+        function skip() {
+            video.currentTime += 15
+            videoOverlay.setAttribute("src", "./assets/src/skipSvg.svg")
+
+            setTimeout(()=>{
+                videoOverlay.setAttribute("src", " ");
+            },100)
+        }
+    </script>
+</body>
+
+</html>
