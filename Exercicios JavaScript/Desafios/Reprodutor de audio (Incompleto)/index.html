@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reprodutor de audio</title>
+    <style>
+        body {
+            background-Color: rgb(133, 53, 230);
+        }
+
+        #container {
+            margin: auto;
+            width: 400px;
+            height: 100px;
+            border-radius: 10px;
+            box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.521);
+            background-color: rgb(0, 0, 0);
+            text-align: center;
+        }
+
+        #playBackTime {
+            width: 80%;
+            height: 2px;
+            border-radius: 2px;
+            appearance: none;
+        }
+
+        #playBackTime::-webkit-slider-thumb {
+            appearance: none;
+            width: 10px;
+            height: 10px;
+            border-radius: 10px;
+            background: aliceblue;
+        }
+
+        #display {
+            padding-top: 12px;
+        }
+
+        #controles {
+            margin-top: 20px;
+        }
+
+        .buttons {
+            width: 35px;
+            height: 35px;
+            border-radius: 35px;
+            border: 0px;
+        }
+
+        .buttons:hover {
+            background-color: gray;
+        }
+
+        .buttonTransparente {
+            background-color: rgba(255, 255, 255, 0);
+            border: 0px;
+        }
+
+        .simboloControle:hover {
+            color: gray;
+        }
+
+        .simboloControle {
+            color: white;
+            font-size: 20px;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <audio id="audio" preload="auto">
+            <source src="./assets/src/audio.mp3" type="audio/mp3">
+        </audio>
+        <div id="display">
+            <input type="range" id="playBackTime" min="0">
+        </div>
+
+        <div id="controles">
+            <button class="buttonTransparente">
+                <div class="simboloControle" id="loop">⟳</div>
+            </button>
+
+            <button class="buttonTransparente" id="retroceder">
+                <div class="simboloControle">⏮</div>
+            </button>
+
+            <button class="buttons" id="play">❚❚</button>
+            <button class="buttonTransparente">
+                <div class="simboloControle" id="avancar">⏭</div>
+            </button>
+
+            <button class="buttonTransparente" id="like">
+                <div class="simboloControle">♡</div>
+            </button>
+
+        </div>
+    </div>
+
+    <script>
+        const btnLoop = document.getElementById('loop');
+        const btnVoltar = document.getElementById('retroceder');
+        const btnPlay = document.getElementById('play');
+        const btnAvancar = document.getElementById('avancar');
+        const btnLike = document.getElementById('like');
+
+        const playBackTime = document.getElementById('playBackTime'); //Range do tempo do audio
+        const audio = document.getElementById('audio');
+        let duracaoAudio; //Duração em (s)
+        let onPlay = false;
+        let intervaloAudio; //Duração da atualização do playBackTime
+
+        playBackTime.value = 0 //Valor padrão do playBackTime
+        playBackTime.step = 0.01 //Seta de quanto em quanto o contador de timer deve correr
+        btnPlay.addEventListener('click', playAudio)
+
+
+        function rangeAudio() {
+            audio.addEventListener('loadedmetadata', () => { //Quando os meta dados do audio carregam a função armazena a duração do audio, antes é impossivel.
+                duracaoAudio = parseInt(audio.duration) //Converte para inteiro
+            })
+        }
+
+        playBackTime.addEventListener('input', function mostrar() {
+            audio.currentTime = playBackTime.value
+            console.log(playBackTime.value)
+        })
+
+        function playAudio() {
+            if (onPlay == false) {
+                audio.play();
+                rangeAudio();
+                onPlay = true;
+                console.log("Musica iniciou!")
+                intervaloAudio = setInterval(() => {
+                    playBackTime.value = audio.currentTime
+                    console.log(playBackTime.value)
+                    playBackTime.max = duracaoAudio
+                }, 100)
+
+            } else {
+                audio.pause()
+                onPlay = false;
+                console.log("Musica parou!")
+                clearInterval(intervaloAudio)
+            }
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>
