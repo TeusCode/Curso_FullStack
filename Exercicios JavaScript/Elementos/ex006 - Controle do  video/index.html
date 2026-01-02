@@ -28,6 +28,12 @@
             top: 0px;
         }
 
+        .controles:hover {
+            .btn {
+                display: inline-block;
+            }
+        }
+
         .btn {
             width: 50px;
             padding: 5px;
@@ -35,6 +41,7 @@
             background-color: white;
             margin: 0px;
             border-radius: 5px;
+            display: none;
 
             position: relative;
             top: 80%;
@@ -137,7 +144,7 @@
             }
         }
 
-        function restart(){
+        function restart() {
             video.currentTime = 0;
             pause()
         }
