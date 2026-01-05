@@ -1,0 +1,73 @@
+body {
+    background-Color: rgb(133, 53, 230);
+}
+
+#container {
+    margin: auto;
+    width: 400px;
+    height: 100px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.521);
+    background-color: rgb(0, 0, 0);
+    text-align: center;
+    user-select: none;
+}
+
+#playBackTime {
+    width: 80%;
+    height: 2px;
+    border-radius: 2px;
+    appearance: none;
+    user-select: none;
+}
+
+#playBackTime::-webkit-slider-thumb {
+    appearance: none;
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    background: aliceblue;
+    user-select: none;
+}
+
+#display {
+    padding-top: 12px;
+    user-select: none;
+}
+
+#controles {
+    margin-top: 20px;
+    user-select: none;
+}
+
+.buttons {
+    width: 35px;
+    height: 35px;
+    border-radius: 35px;
+    border: 0px;
+    user-select: none;
+}
+
+.buttons:hover {
+    background-color: gray;
+    user-select: none;
+}
+
+.buttonTransparente {
+    background-color: rgba(255, 255, 255, 0);
+    border: 0px;
+    user-select: none;
+}
+
+.simboloControle:hover {
+    color: gray;
+    user-select: none;
+}
+
+.simboloControle {
+    color: white;
+    font-size: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    user-select: none;
+}
