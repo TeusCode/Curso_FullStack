@@ -9,6 +9,10 @@
 </head>
 
 <body>
+    <div id="boxDisco" style="margin: auto; text-align:center">
+        <img id="disco" src="assets/src/disco.png" alt="Não carregou!">
+    </div>
+
     <div id="container">
         <audio id="audio" preload="auto">
             <source src="./assets/src/audio.mp3" type="audio/mp3">
@@ -26,7 +30,7 @@
                 <div class="simboloControle">⏮</div>
             </button>
 
-            <button class="buttons" id="play">❚❚</button>
+            <button class="buttons" id="play">▶</button>
             <button class="buttonTransparente">
                 <div class="simboloControle" id="avancar">⏭</div>
             </button>
@@ -34,9 +38,11 @@
             <button class="buttonTransparente">
                 <div class="simboloControle" id="like">♡</div>
             </button>
+
         </div>
+        <input id="volume" min="0" max="1" step="0.1" type="range">
     </div>
-    
+
     <script src="assets/script.js"></script>
 </body>
 

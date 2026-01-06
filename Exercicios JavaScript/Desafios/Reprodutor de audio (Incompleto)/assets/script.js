@@ -4,19 +4,23 @@ const btnLoop = document.getElementById('loop');
 const btnVoltar = document.getElementById('retroceder');
 const btnAvancar = document.getElementById('avancar');
 const btnLike = document.getElementById('like');
+const rngVolume = document.getElementById('volume');
 const playBackTime = document.getElementById('playBackTime'); //Range de duração do audio
 const audio = document.getElementById('audio'); //Tag (audio)
+const disco = document.getElementById('disco');//Disco de vinil
 
 let duracaoAudio; //Duração em (s)
 let onPlay = false; //Estado do btnplay
 let loop = false;
 let like = false;
+let volValue = rngVolume.value;
 
 //Configurações iniciais:
 playBackTime.value = 0 //Valor padrão do playBackTime
 playBackTime.step = 0.01 //Intervalo do contador
 
 //Eventos:
+rngVolume.addEventListener('input', volume);
 btnPlay.addEventListener('click', playAudio);
 btnLoop.addEventListener('click', loopAudio);
 btnVoltar.addEventListener('click', voltarAudio);
@@ -35,32 +39,45 @@ audio.addEventListener('timeupdate', () => {
 })
 //Manter atualizado a modificação do range do audio:
 playBackTime.addEventListener('input', function mostrar() {
-    audio.currentTime = playBackTime.value 
+    audio.currentTime = playBackTime.value
 })
 
 //Ações dos botões:
+function audioTocando() {
+    if (onPlay != false) {
+        disco.classList.add('girando')
+    } else {
+        disco.classList.remove('girando')
+    }
+}
+
+function volume() {
+    audio.volume = parseFloat(rngVolume.value)
+    console.log(`O volume é ${rngVolume.value}`)
+}
 function playAudio() {
     if (onPlay == false) {
         audio.play();
         onPlay = true;
-        btnPlay.innerHTML = '▶'
+        btnPlay.innerHTML = '❚❚'
         console.log("Musica iniciada!")
 
     } else {
         audio.pause()
         onPlay = false;
-        btnPlay.innerHTML = '❚❚'
+        btnPlay.innerHTML = '▶'
         console.log("Musica parou!")
     }
+    audioTocando()
 }
 function loopAudio() {
     if (loop != true) {
-        audio.loop = 'true';
+        audio.loop = true;
         loop = true;
         btnLoop.style.color = 'orange';
         console.log("A musíca está em loop!");
     } else {
-        audio.loop = 'false';
+        audio.loop = false;
         loop = false;
         btnLoop.style.color = 'white';
         console.log("A musíca não está mais em loop!")
