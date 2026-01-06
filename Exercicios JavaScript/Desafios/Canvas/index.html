@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desenho de linhas no canvas</title>
+    <style>
+        #tela {
+            background-color: aliceblue;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="tela" width="600px" height="600px"> <!-- Tela para desenhar <canvas> -->
+
+    </canvas>
+    <script>
+        const tela = document.getElementById('tela');
+
+        let context = tela.getContext('2d'); //Pega o contexto 2d, para desenhos 2d
+
+        //Cordenadas x = largura , y = altura  || posição: (x,y)
+
+        context.moveTo(0, 0); //Posiciona a caneta na cordenada (inicial);
+        context.lineTo(600, 600); //Desenha uma linha até a cordenada (final);
+        context.moveTo(600, 0) //Posiciona a caneta na cordenada
+        context.lineTo(0, 600) //Desenha uma linha até a cordenada
+        context.strokeStyle = 'red'
+        context.lineWidth = 2;
+        context.stroke();
+    </script>
+</body>
+
+</html>
