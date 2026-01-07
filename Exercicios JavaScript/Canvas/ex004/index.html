@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desenhe uma casa </title>
+    <style>
+        body {
+            background-color: rgb(104, 130, 145);
+        }
+
+        #tela {
+            background-color: aliceblue;
+            border: 3px solid rgb(2, 83, 190);
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="tela" width="500x" height="500px"></canvas>
+    <script>
+        const tela = document.getElementById('tela');
+        let ctx = tela.getContext('2d')
+
+        //Estrutura da casa:
+        ctx.moveTo(166, 166);
+        ctx.lineTo(166, 332);
+        ctx.lineTo(332, 332);
+        ctx.lineTo(332, 166);
+        ctx.lineTo(166, 166);
+        ctx.lineTo(250, 100);
+        ctx.lineTo(334, 166);
+
+        //Porta
+        ctx.moveTo(230, 334);
+        ctx.lineTo(230, 270);
+        ctx.lineTo(270, 270);
+        ctx.lineTo(270, 334);
+
+        ctx.stroke();
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desenhe um quadrado</title>
+    <style>
+        body {
+            background-color: rgb(104, 130, 145);
+        }
+
+        #tela {
+            background-color: aliceblue;
+            border: 3px solid rgb(2, 83, 190);
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="tela" width="500px" height="500px"></canvas>
+    <script>
+        const canvas = document.getElementById('tela');
+        const ctx = canvas.getContext('2d');
+
+        ctx.moveTo(166, 166);
+        ctx.lineTo(333, 166);
+        ctx.lineTo(333, 333);
+        ctx.lineTo(166, 334);
+        ctx.lineTo(166, 166);
+
+        ctx.lineWidth = 5
+
+        ctx.stroke();
+
+    </script>
+</body>
+
+</html>
