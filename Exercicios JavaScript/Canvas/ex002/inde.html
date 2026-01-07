@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desenhando uma estrela</title>
+    <style>
+        #tela{
+            background-color: aliceblue;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Desenhe uma estrela:</h1>
+    <canvas id="tela" width="500px" height="500px">
+
+    </canvas>
+
+    <script>
+        const tela = document.getElementById('tela');
+        let contexto = tela.getContext('2d'); //Setar o contexto 2d
+
+        //x = largura | y = altura |   (x,y)
+
+        //Lado esquerdo:
+        contexto.moveTo(250,0); //Posicionando a caneta no ponto 0
+        contexto.lineTo(150,150); //Desenhando a linha
+        contexto.lineTo(0,250);
+        contexto.lineTo(150,350);
+        contexto.lineTo(250,500);
+
+        //Lado direito:
+        contexto.lineTo(350,350);
+        contexto.lineTo(500,250);
+        contexto.lineTo(350,150);
+        contexto.lineTo(250,0)
+        
+        contexto.stroke()
+    </script>
+</body>
+</html>
