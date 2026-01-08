@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desenhando uma casa</title>
+    <style>
+        body {
+            background-color: rgb(104, 130, 145);
+        }
+
+        #tela {
+            background-color: aliceblue;
+            border: 3px solid rgb(2, 83, 190);
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="tela" width="150px" height="200px">
+
+    </canvas>
+    <script>
+        const tela = document.getElementById('tela');
+        let ctx = tela.getContext('2d')
+
+        ctx.beginPath()
+        ctx.fillStyle = 'orange';
+        ctx.fillRect(25, 90, 100, 100);
+
+        ctx.beginPath()
+        ctx.strokeStyle = 'orange'
+        ctx.moveTo(25, 90);
+        ctx.lineTo(75, 50);
+        ctx.lineTo(125, 90);
+        ctx.lineTo(25, 90);
+
+        ctx.stroke()
+
+        ctx.beginPath()
+        ctx.fillStyle = 'brown'
+        ctx.fillRect(50, 150, 20, 40);
+
+        ctx.beginPath()
+        ctx.fillStyle = 'brown'
+        ctx.fillRect(90, 150, 20, 20)
+
+    </script>
+</body>
+
+</html>
