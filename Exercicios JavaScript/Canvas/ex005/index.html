@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desenhando retangulos no canvas</title>
+    <style>
+        body {
+            background-color: rgb(104, 130, 145);
+        }
+
+        .tela {
+            background-color: aliceblue;
+            border: 3px solid rgb(2, 83, 190);
+        }
+    </style>
+</head>
+
+<body>
+    <canvas class="tela" id="tela1" onclick="teste()" width="300px" height="150px"></canvas>
+
+    <canvas class="tela" id="tela2" width="300px" height="200px"></canvas>
+    <script>
+        //Carta:
+        const tela = document.getElementById('tela1');
+        let ctx = tela.getContext('2d');
+
+        ctx.beginPath();
+        ctx.rect(0, 0, 300, 150);
+        ctx.fillStyle = '#E7D6B7';
+        ctx.strokeStyle = '#E7234';
+
+        ctx.stroke()
+        ctx.fill()
+
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        ctx.lineTo(150, 75)
+        ctx.lineTo(300, 0)
+
+        ctx.stroke()
+
+        const tela2 = document.getElementById('tela2');
+        let ctx2 = tela2.getContext('2d');
+
+        ctx2.fillStyle = '#E7D6B7';
+        ctx2.fillRect(10, 10, 280, 180);
+
+        ctx2.beginPath()
+        ctx2.fillStyle = 'red';
+        ctx2.fillRect(20, 20, 120, 40);
+        ctx2.fillRect(20, 70, 120, 40);
+
+        ctx2.fillRect(160, 20, 120, 160);
+
+
+    </script>
+</body>
+
+</html>
