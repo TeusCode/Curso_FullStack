@@ -11,7 +11,7 @@
         }
 
         #tela {
-            background-color: aliceblue;
+            background-color: rgba(248, 186, 253, 0.733);
             border: 3px solid rgb(2, 83, 190);
         }
     </style>
@@ -25,6 +25,7 @@
         const tela = document.getElementById('tela');
         let ctx = tela.getContext('2d')
 
+        //Casa
         ctx.beginPath()
         ctx.fillStyle = 'orange';
         ctx.fillRect(25, 90, 100, 100);
@@ -38,13 +39,30 @@
 
         ctx.stroke()
 
+        //Porta:
         ctx.beginPath()
         ctx.fillStyle = 'brown'
         ctx.fillRect(50, 150, 20, 40);
+        ctx.clearRect(52, 152, 16, 16);
 
+        ctx.beginPath()
+        ctx.fillStyle = 'black'
+        ctx.fillRect(52, 170, 2, 5);
+
+        //Campainha:
+        ctx.beginPath()
+        ctx.fillStyle = 'blue'
+        ctx.fillRect(75, 160, 3, 5);
+
+        ctx.beginPath()
+        ctx.fillStyle = 'white'
+        ctx.fillRect(76, 161, 1, 2.5);
+
+        //Janela:
         ctx.beginPath()
         ctx.fillStyle = 'brown'
         ctx.fillRect(90, 150, 20, 20)
+        ctx.clearRect(92, 152, 16, 16)
 
     </script>
 </body>
