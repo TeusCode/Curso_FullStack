@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .girando {
+            animation: rotacao 1s infinite linear;
+        }
+
+        @keyframes rotacao {
+            form {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="tela" width="100px" height="100px"></canvas>
+    <script>
+        const tela = document.getElementById('tela')
+        let ctx = tela.getContext('2d');
+
+        ctx.beginPath();
+        ctx.lineWidth = 8
+        ctx.lineCap = "round";
+        ctx.strokeStyle = "rgba(0, 0, 255, 0.486)";
+        ctx.arc(50, 50, 30, 0, 1.5 * Math.PI)
+        ctx.stroke()
+    </script>
+</body>
+
+</html>
