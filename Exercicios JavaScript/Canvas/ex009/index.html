@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas</title>
+    <style>
+        body {
+            background-color: gray;
+        }
+
+        #tela {
+            background-color: beige;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="tela" width="300px" height="300px">
+    </canvas>
+
+    <script>
+        const tela = document.getElementById('tela');
+        const ctx = tela.getContext('2d');
+
+        ctx.beginPath();
+        ctx.moveTo(10, 10);
+        ctx.lineTo(10, 100);
+        ctx.lineTo(100, 10);
+        ctx.lineTo(10, 10);
+        ctx.fill()
+
+        ctx.beginPath()
+        ctx.moveTo(10, 10);
+
+
+        ctx.stroke();
+
+
+    </script>
+</body>
+
+</html>
