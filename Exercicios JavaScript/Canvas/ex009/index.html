@@ -24,18 +24,18 @@
         const tela = document.getElementById('tela');
         const ctx = tela.getContext('2d');
 
-        ctx.beginPath();
-        ctx.moveTo(10, 10);
-        ctx.lineTo(10, 100);
-        ctx.lineTo(100, 10);
-        ctx.lineTo(10, 10);
-        ctx.fill()
+        let dcOn = false
 
-        ctx.beginPath()
-        ctx.moveTo(10, 10);
+        function desenharCirculo() {
+            if (dcOn != true) {
+                setInterval(() => {
+                    ctx.arc(100, 100, 50, 0, Math.PI * 0.5);
+                    ctx.stroke()
+                }, 1000)
+                dcOn = true
+            }
+        }
 
-
-        ctx.stroke();
 
 
     </script>
