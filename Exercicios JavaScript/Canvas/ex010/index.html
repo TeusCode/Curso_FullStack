@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #tela {
+            background-color: bisque;
+            border: 1px solid green;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="tela" width="500px" height="500px">
+    </canvas>
+    <script>
+        const tela = document.getElementById('tela');
+        const ctx = tela.getContext('2d');
+
+        let circle = {
+            x: 50,
+            y: 250,
+            raio: 90,
+            inicio: 0,
+            final: 0,
+        }
+
+
+        function drawCircle(c) {
+            //Reedesenha a tela:
+            ctx.beginPath()
+            ctx.rect(0, 0, 500, 500);
+            ctx.fillStyle = 'bisque'
+            ctx.fill()
+
+            //Desenha o circulo
+            ctx.beginPath()
+            ctx.arc(c.x, c.y, c.raio, c.inicio, c.final);
+            ctx.fillStyle = "red";
+            ctx.strokeStyle = 'blue'
+
+            ctx.fill()
+            ctx.stroke();
+
+        }
+
+        setInterval(() => {
+            if (circle.final < Math.PI * 2) {
+                circle.final += 0.1
+                circle.x += 3
+            }
+            drawCircle(circle)
+        }, 70)
+
+    </script>
+</body>
+
+</html>
