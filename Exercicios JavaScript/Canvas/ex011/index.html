@@ -21,8 +21,17 @@
         const tela = document.getElementById('tela');
         const ctx = tela.getContext('2d');
 
-        let img 
-        
+        let img = new Image()
+        img.src = "peca.png"
+
+        img.onload = "desenharImagem"
+
+        function desenharImagem() {
+            ctx.drawImage(img, 100, 100
+
+            )
+        }
+
     </script>
 </body>
 
