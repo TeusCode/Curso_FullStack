@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1::first-letter {
+            font-size: 7rem;
+            color: red;
+        }
+
+        /*Customiza a primeira letra*/
+
+        #text1::first-line {
+            color: blue;
+        }
+
+        /*Customiza a primeira linha*/
+        #text2::selection {
+            background-color: orangered;
+            color: rgb(187, 255, 0);
+        }
+
+        /*Customiza o texto selecionado*/
+        li {
+            list-style: none;
+        }
+
+        li::before {
+            content: 'X  '
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Titulo</h1>
+    <p id="text1">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa corporis consectetur, cupiditate iusto
+        reprehenderit quibusdam aliquid, nam numquam error rerum, dolores laudantium distinctio ad reiciendis at
+        provident ab quia recusandae.</p>
+    <p id="text2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam itaque, aliquid corrupti consequatur
+        quod pariatur
+        ad ipsa voluptatibus delectus ab accusantium culpa rerum veritatis inventore voluptatum dicta, in doloribus non.
+    </p>
+    <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+        <li>Item 5</li>
+    </ul>
+
+</body>
+
+</html>
