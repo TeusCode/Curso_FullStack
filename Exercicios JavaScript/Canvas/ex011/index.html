@@ -14,25 +14,24 @@
 </head>
 
 <body>
-    <canvas id="tela" width="400" height="400">
+    <canvas id="tela" width="500" height="500">
+        
+        </canvas>
+        <script>
+            const tela = document.getElementById('tela');
+            const ctx = tela.getContext('2d');
 
-    </canvas>
-    <script>
-        const tela = document.getElementById('tela');
-        const ctx = tela.getContext('2d');
+            let img = new Image()
+            img.src = "peca.png"
 
-        let img = new Image()
-        img.src = "peca.png"
+            img.onload = desenharImagem //Quando a imagem terminar de carregar ele executa a função desenharImagem()
 
-        img.onload = "desenharImagem"
+            function desenharImagem() {
+                ctx.drawImage(img, 0, 0, 500, 500
+                )
+            }
 
-        function desenharImagem() {
-            ctx.drawImage(img, 100, 100
-
-            )
-        }
-
-    </script>
+        </script>
 </body>
 
 </html>
