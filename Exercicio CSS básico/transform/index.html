@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transformação de elementos com Css</title>
+</head>
+
+<style>
+    #elemento {
+        width: 80px;
+        height: 80px;
+        background-color: red;
+        border-radius: 30px;
+    }
+
+    #container {
+        margin: auto;
+        width: 500px;
+        height: 80px;
+        padding: 20px;
+        border: 1px solid black;
+        border-radius: 10px;
+    }
+</style>
+
+<body>
+    <div id="container">
+        <div id="elemento"></div>
+    </div>
+
+    <script>
+        const elemento = document.getElementById('elemento');
+
+        let rotacao = false
+        let grauRotate = 0
+        let intervalo;
+        let mov = 0;
+
+        elemento.addEventListener('click', () => {
+            rotacionar()
+        })
+
+        function rotacionar() {
+            if (rotacao != true) {
+                rotacao = true
+                intervalo = setInterval(() => {
+                    elemento.style = `transform:translateX(${mov}px) rotate(${grauRotate}deg)`
+
+                    mov += 1
+                    grauRotate += 1
+                    if (mov >= 420) {
+                        pararRotacao()
+                        rotacionar()
+                    }
+                }, 10)
+            } else {
+                pararRotacao()
+            }
+        }
+
+        function pararRotacao() {
+            rotacao = false
+            clearInterval(intervalo)
+            elemento.style = `transform: rotate(0deg)`
+            grauRotate = 0
+            mov = 0
+        }
+
+    </script>
+</body>
+
+</html>
