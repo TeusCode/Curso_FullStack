@@ -34,9 +34,9 @@
         const elemento = document.getElementById('elemento');
 
         let rotacao = false
-        let grauRotate = 0
+        let grauRotacao = 0
         let intervalo;
-        let mov = 0;
+        let cordX = 0;
 
         elemento.addEventListener('click', () => {
             rotacionar()
@@ -46,11 +46,12 @@
             if (rotacao != true) {
                 rotacao = true
                 intervalo = setInterval(() => {
-                    elemento.style = `transform:translateX(${mov}px) rotate(${grauRotate}deg)`
+                    elemento.style = `transform:translateX(${cordX}px) rotate(${grauRotacao}deg)`
 
-                    mov += 1
-                    grauRotate += 1
-                    if (mov >= 420) {
+                    cordX ++
+                    grauRotacao ++
+
+                    if (cordX >= 420) {
                         pararRotacao()
                         rotacionar()
                     }
@@ -64,8 +65,8 @@
             rotacao = false
             clearInterval(intervalo)
             elemento.style = `transform: rotate(0deg)`
-            grauRotate = 0
-            mov = 0
+            grauRotacao = 0
+            cordX = 0
         }
 
     </script>
