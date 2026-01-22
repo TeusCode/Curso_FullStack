@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="tela" width="200px" height="200px">
+
+    </canvas>
+    <script>
+        const tela = document.getElementById('tela');
+        const ctx = tela.getContext('2d');
+
+        let intervalo;
+        let on = false;
+        let angulo = 0;
+
+        ctx.beginPath()
+        ctx.arc(100, 100, 90, 0, Math.PI * 1.5);
+        ctx.lineWidth = '10'
+        ctx.stroke()
+
+        function girar() {
+            if (on != true) {
+                intervalo = setInterval(() => {
+                    tela.style = `transform: rotate(${angulo}deg)`
+                    angulo += 10
+                }, 10)
+            }
+        }
+    </script>
+</body>
+
+</html>
