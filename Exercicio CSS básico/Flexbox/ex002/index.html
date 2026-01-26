@@ -32,9 +32,42 @@
 
 <body>
     <div id="container">
-        <div id="div1"></div>
-        <div id="div2"></div>
+        <div onclick="elm = 0" id="div1"></div>
+        <div onclick="elm = 1" id="div2"></div>
     </div>
+
+    <button id="button" onclick="mudarFlex()">Mudar Flex-Direction</button>
+
+    <button onclick="aumentar()">+</button>
+
+    <button onclick="diminuir()">-</button>
+
+    <script>
+
+        const container = document.getElementById('container');
+        const button = document.getElementById('button')
+        let vl = 100;
+        let elm = 0;
+        mudarFlex()
+
+        function aumentar() {
+            container.children[elm].style = `width:${vl += 10}px`
+        }
+
+        function diminuir() {
+            container.children[elm].style = `width:${vl -= 10}px`
+        }
+
+        function mudarFlex() {
+            if (container.style.flexDirection == 'column') {
+                container.style = 'flex-direction:row'
+            } else {
+                container.style = 'flex-direction:column'
+            }
+        }
+
+
+    </script>
 </body>
 
 </html>
