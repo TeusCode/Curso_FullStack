@@ -109,8 +109,40 @@
 
         //Variaveis Auxiliares:
         let minutos = display.value.slice(0, 2); //Fatia a string e extrai só os minutos;
-        let segundos;
+        let segundos = Number(display.value.slice(3, 5));
+        //Fatia a string e extrai só os segundos;
+        let interval;
 
+        btnIniciar.addEventListener('click', iniciarTimer);
+        btnPause.addEventListener('click', pararTimer)
+
+        //Funções:
+        function iniciarTimer() {
+            interval = setInterval(() => {
+                if (segundos < 10) {
+                    segundos = String(Number(segundos)).padStart(2, '0')
+                }
+
+                if (minutos < 10) {
+                    minutos = String(Number(minutos)).padStart(2, '0')
+                }
+
+                if (segundos >= 60) {
+                    Number(minutos++)
+                    minutos = String(Number(minutos)).padStart(2, '0')
+                    segundos = '00'
+                }
+
+                display.value = `${minutos}:${segundos}`
+                Number(segundos++)
+                console.log(segundos)
+            }, 100)
+            console.log('teste')
+        }
+
+        function pararTimer() {
+            clearInterval(interval)
+        }
 
 
     </script>
