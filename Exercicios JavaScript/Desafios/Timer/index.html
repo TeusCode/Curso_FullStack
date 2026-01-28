@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #53b28b, #4e3297);
+            margin: 0px;
+
+            position: relative;
+            height: 100vh;
+        }
+
+        #container {
+            width: 450px;
+            height: 500px;
+            background-color: white;
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+            box-sizing: border-box;
+            text-align: center;
+
+            position: absolute;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+        }
+
+        #relogio {
+            border: 5px solid gray;
+            width: 220px;
+            height: 220px;
+            margin: auto;
+            margin-top: 50px;
+            margin-bottom: 100px;
+            border-radius: 115px;
+            position: relative;
+        }
+
+        #display {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 2.5em;
+            width: 150px;
+            text-align: center;
+            border: 0px;
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%)
+        }
+
+        input[type="time"]::-webkit-calendar-picker-indicator {
+            display: none;
+        }
+
+        .btns {
+            width: 50px;
+            height: 50px;
+            border-radius: 50px;
+            border: 2px solid #685aa1;
+            color: #685aa1;
+            font-size: 1.2em;
+            padding: 10px;
+            text-align: center
+        }
+
+        .btns:hover {
+            background-color: gray;
+        }
+    </style>
+</head>
+
+<body>
+    <!--Corpo do Timer:-->
+    <div id="container">
+        <!--Display-->
+        <div id="relogio">
+            <canvas id="tela">
+            </canvas>
+            <input type="time" id="display" value="00:00" max="4"></input>
+        </div>
+        <!--Botões-->
+        <button class="btns" id="btnPause">
+            ❚❚
+        </button>
+        <button class="btns" id="btnIniciar">
+            ▶ </button>
+        <button class="btns" id="btnReiniciar">
+            ⟳
+        </button>
+
+    </div>
+
+    <script>
+        //Display:
+        const tela = document.getElementById('tela');
+        const ctx = tela.getContext('2d');
+        const display = document.getElementById('display');
+
+        //Botões:
+        const btnIniciar = document.getElementById('btnIniciar');
+        const btnPause = document.getElementById('btnPause');
+        const btnReiniciar = document.getElementById('btnReiniciar');
+
+        //Variaveis Auxiliares:
+        let minutos = display.value.slice(0, 2); //Fatia a string e extrai só os minutos;
+        let segundos;
+
+
+
+    </script>
+</body>
+
+</html>
