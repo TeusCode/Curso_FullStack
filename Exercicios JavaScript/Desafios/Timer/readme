@@ -1,0 +1,21 @@
+ Código para um temporizador:
+ 
+ interval = setInterval(() => {
+                    if (segundos < 10) {
+                        segundos = String(Number(segundos)).padStart(2, '0')
+                    }
+
+                    if (minutos < 10) {
+                        minutos = String(Number(minutos)).padStart(2, '0')
+                    }
+
+                    if (segundos >= 60) {
+                        Number(minutos++)
+                        minutos = String(Number(minutos)).padStart(2, '0')
+                        segundos = '00'
+                    }
+
+                    display.value = `${minutos}:${segundos}`
+                    Number(segundos++)
+                    console.log(segundos)
+                }, 100)

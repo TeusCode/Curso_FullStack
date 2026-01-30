@@ -102,22 +102,30 @@
         const ctx = tela.getContext('2d');
         const display = document.getElementById('display');
 
+
         //Botões:
         const btnIniciar = document.getElementById('btnIniciar');
         const btnPause = document.getElementById('btnPause');
         const btnReiniciar = document.getElementById('btnReiniciar');
 
         //Variaveis Auxiliares:
-        let minutos = display.value.slice(0, 2); //Fatia a string e extrai só os minutos;
+        let minutos = Number(display.value.slice(0, 2)); //Fatia a string e extrai só os minutos;
         let segundos = Number(display.value.slice(3, 5));
+        let tempo = '00:00'
         //Fatia a string e extrai só os segundos;
         let interval;
 
-        btnIniciar.addEventListener('click', iniciarTimer);
-        btnPause.addEventListener('click', pararTimer)
+        btnIniciar.addEventListener('click', btnStart);
+        btnPause.addEventListener('click', pauseTimer);
+        btnReiniciar.addEventListener('click', reiniciarTime)
 
         //Funções:
-        function iniciarTimer() {
+
+        function atualizarDisplay() {
+            display.value = `${minutos}:${segundos}`
+        }
+
+        function btnStart() {
             interval = setInterval(() => {
                 if (segundos < 10) {
                     segundos = String(Number(segundos)).padStart(2, '0')
@@ -133,15 +141,21 @@
                     segundos = '00'
                 }
 
-                display.value = `${minutos}:${segundos}`
+                atualizarDisplay()
                 Number(segundos++)
                 console.log(segundos)
-            }, 100)
-            console.log('teste')
+            }, 1000)
         }
 
-        function pararTimer() {
+        function pauseTimer() {
             clearInterval(interval)
+        }
+
+        function reiniciarTime() {
+            minutos = '00'
+            segundos = '00'
+            clearInterval(interval)
+            atualizarDisplay()
         }
 
 
