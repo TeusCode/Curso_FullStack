@@ -109,55 +109,65 @@
         const btnReiniciar = document.getElementById('btnReiniciar');
 
         //Variaveis Auxiliares:
-        let minutos = Number(display.value.slice(0, 2)); //Fatia a string e extrai só os minutos;
-        let segundos = Number(display.value.slice(3, 5));
-        let tempo = '00:00'
+        let tempoSegundos = Number(display.value.slice(0, 2) * 60) + (Number(display.value.slice(3, 5)));
         //Fatia a string e extrai só os segundos;
         let interval;
 
         btnIniciar.addEventListener('click', btnStart);
         btnPause.addEventListener('click', pauseTimer);
-        btnReiniciar.addEventListener('click', reiniciarTime)
+        btnReiniciar.addEventListener('click', reiniciarTimer)
 
-        //Funções:
+        //funções:
 
-        function atualizarDisplay() {
-            display.value = `${minutos}:${segundos}`
+        function attDisplay(min, seg) {
+            //Atualização do tempo:
+            tempoSegundos = Number(display.value.slice(0, 2) * 60) + (Number(display.value.slice(3, 5)));
+            //Atualização de mostrar no Display:
+            const minF = String(min).padStart(2, '0');
+            const segF = String(seg).padStart(2, '0');
+
+            display.value = `${minF}:${segF}`
+            console.log(`${minF}:${segF}`)
         }
 
         function btnStart() {
+            tempoSegundos = Number(display.value.slice(0, 2) * 60) + (Number(display.value.slice(3, 5)));
+            if (tempoSegundos == 0) {
+                return alert("Insira o tempo no cronometro!")
+            }
+
             interval = setInterval(() => {
-                if (segundos < 10) {
-                    segundos = String(Number(segundos)).padStart(2, '0')
+                tempoSegundos = Number(display.value.slice(0, 2) * 60) + (Number(display.value.slice(3, 5)));
+
+                if (tempoSegundos == 0) {
+                    alert('Seu cronometro finalizou!')
+
+                    clearInterval(interval)
+                    return
                 }
 
-                if (minutos < 10) {
-                    minutos = String(Number(minutos)).padStart(2, '0')
-                }
+                tempoSegundos--
 
-                if (segundos >= 60) {
-                    Number(minutos++)
-                    minutos = String(Number(minutos)).padStart(2, '0')
-                    segundos = '00'
-                }
+                let minutos = Math.trunc(tempoSegundos / 60);
+                let segundos = Math.round((tempoSegundos / 60 - minutos) * 60)
 
-                atualizarDisplay()
-                Number(segundos++)
-                console.log(segundos)
-            }, 1000)
+                attDisplay(minutos, segundos)
+
+            }, 100)
+
         }
 
         function pauseTimer() {
+            console.log("Timer parado!")
             clearInterval(interval)
         }
 
-        function reiniciarTime() {
-            minutos = '00'
-            segundos = '00'
+        function reiniciarTimer() {
+            console.log("Timer Reiniciado!")
             clearInterval(interval)
-            atualizarDisplay()
+            attDisplay(0, 0)
+            tempoSegundos = 0
         }
-
 
     </script>
 </body>
