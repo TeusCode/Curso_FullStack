@@ -109,7 +109,8 @@
         const btnReiniciar = document.getElementById('btnReiniciar');
 
         //Variaveis Auxiliares:
-        let tempoSegundos = Number(display.value.slice(0, 2) * 60) + (Number(display.value.slice(3, 5)));
+        let tempoSegundos;
+        let valorInicial;
         //Fatia a string e extrai só os segundos;
         let interval;
 
@@ -132,6 +133,9 @@
 
         function btnStart() {
             tempoSegundos = Number(display.value.slice(0, 2) * 60) + (Number(display.value.slice(3, 5)));
+
+            valorInicial = tempoSegundos
+
             if (tempoSegundos == 0) {
                 return alert("Insira o tempo no cronometro!")
             }
@@ -142,7 +146,7 @@
                 if (tempoSegundos == 0) {
                     alert('Seu cronometro finalizou!')
 
-                    clearInterval(interval)
+                    reiniciarTimer()
                     return
                 }
 
@@ -153,7 +157,7 @@
 
                 attDisplay(minutos, segundos)
 
-            }, 100)
+            }, 1000)
 
         }
 
