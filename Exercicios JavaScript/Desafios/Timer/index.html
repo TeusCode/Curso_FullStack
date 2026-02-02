@@ -64,13 +64,19 @@
             border-radius: 50px;
             border: 2px solid #685aa1;
             color: #685aa1;
+            background-color: white;
             font-size: 1.2em;
             padding: 10px;
             text-align: center
         }
 
         .btns:hover {
-            background-color: gray;
+            background-color: #685aa1;
+            color: white;
+        }
+
+        #btnIniciar {
+            width: 90px;
         }
     </style>
 </head>
@@ -89,7 +95,7 @@
             ❚❚
         </button>
         <button class="btns" id="btnIniciar">
-            ▶ </button>
+            ▶ Start </button>
         <button class="btns" id="btnReiniciar">
             ⟳
         </button>
@@ -110,11 +116,22 @@
 
         //Variaveis Auxiliares:
         let tempoSegundos;
-        let valorInicial;
+        let tempoInicial;
+        let contando = false;
         //Fatia a string e extrai só os segundos;
         let interval;
 
         btnIniciar.addEventListener('click', btnStart);
+        btnIniciar.addEventListener('mouseenter', () => {
+            btnIniciar.style.backgroundColor = '#685aa1'
+            btnIniciar.style.color = 'white'
+        }
+        );
+        btnIniciar.addEventListener('mouseleave', () => {
+            btnIniciar.style.backgroundColor = 'white'
+            btnIniciar.style.color = '#685aa1'
+        }
+        );
         btnPause.addEventListener('click', pauseTimer);
         btnReiniciar.addEventListener('click', reiniciarTimer)
 
@@ -123,6 +140,7 @@
         function attDisplay(min, seg) {
             //Atualização do tempo:
             tempoSegundos = Number(display.value.slice(0, 2) * 60) + (Number(display.value.slice(3, 5)));
+
             //Atualização de mostrar no Display:
             const minF = String(min).padStart(2, '0');
             const segF = String(seg).padStart(2, '0');
@@ -131,34 +149,46 @@
             console.log(`${minF}:${segF}`)
         }
 
-        function btnStart() {
-            tempoSegundos = Number(display.value.slice(0, 2) * 60) + (Number(display.value.slice(3, 5)));
+        function btnStart(e) {
+            if (contando != true) {
 
-            valorInicial = tempoSegundos
-
-            if (tempoSegundos == 0) {
-                return alert("Insira o tempo no cronometro!")
-            }
-
-            interval = setInterval(() => {
                 tempoSegundos = Number(display.value.slice(0, 2) * 60) + (Number(display.value.slice(3, 5)));
 
-                if (tempoSegundos == 0) {
-                    alert('Seu cronometro finalizou!')
+                tempoInicial = tempoSegundos
 
-                    reiniciarTimer()
-                    return
+                if (tempoSegundos == 0) {
+                    return alert("Insira o tempo no cronometro!")
                 }
 
-                tempoSegundos--
+                //Style:
+                e.target.style.backgroundColor = '#685aa1'
+                e.target.style.color = 'white'
+                e.target.textContent = '⏹ Stop'
 
-                let minutos = Math.trunc(tempoSegundos / 60);
-                let segundos = Math.round((tempoSegundos / 60 - minutos) * 60)
+                contando = true
 
-                attDisplay(minutos, segundos)
+                interval = setInterval(() => {
+                    tempoSegundos = Number(display.value.slice(0, 2) * 60) + (Number(display.value.slice(3, 5)));
 
-            }, 1000)
+                    if (tempoSegundos == 0) {
+                        alert('Seu cronometro finalizou!')
 
+                        pararTimer()
+                        return
+                    }
+
+                    tempoSegundos--
+
+                    let minutos = Math.trunc(tempoSegundos / 60);
+                    let segundos = Math.round((tempoSegundos / 60 - minutos) * 60)
+
+                    attDisplay(minutos, segundos)
+
+                }, 1000)
+            } else {
+                pararTimer()
+                return
+            }
         }
 
         function pauseTimer() {
@@ -167,10 +197,31 @@
         }
 
         function reiniciarTimer() {
-            console.log("Timer Reiniciado!")
+            clearInterval(interval)
+
+            let minutos = Math.trunc(tempoInicial / 60);
+            let segundos = Math.round((tempoInicial / 60 - minutos) * 60)
+
+            attDisplay(minutos, segundos)
+            contando = false;
+
+            //Style:
+            btnIniciar.style.backgroundColor = 'white'
+            btnIniciar.style.color = '#685aa1'
+            btnIniciar.textContent = '▶ Start'
+        }
+
+        function pararTimer() {
+            console.log("Timer Finalizado!")
             clearInterval(interval)
             attDisplay(0, 0)
             tempoSegundos = 0
+            contando = false
+
+            //Style:
+            btnIniciar.style.backgroundColor = 'white'
+            btnIniciar.style.color = '#685aa1'
+            btnIniciar.textContent = '▶ Start'
         }
 
     </script>
