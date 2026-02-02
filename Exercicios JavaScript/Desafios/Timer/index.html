@@ -30,8 +30,8 @@
             left: 50%;
         }
 
-        #relogio {
-            border: 5px solid gray;
+        #baseRelogio {
+            border: 5px solid rgb(185, 185, 185);
             width: 220px;
             height: 220px;
             margin: auto;
@@ -78,6 +78,15 @@
         #btnIniciar {
             width: 90px;
         }
+
+        #relogio {
+            width: 220px;
+            height: 220px;
+            margin-right: 90px;
+            border-radius: 220px;
+            border: 5px solid gray;
+            box-sizing: border-box;
+        }
     </style>
 </head>
 
@@ -85,9 +94,9 @@
     <!--Corpo do Timer:-->
     <div id="container">
         <!--Display-->
-        <div id="relogio">
-            <canvas id="tela">
-            </canvas>
+        <div id="baseRelogio">
+            <div id="relogio">
+            </div>
             <input type="time" id="display" value="00:00" max="4"></input>
         </div>
         <!--Botões-->
@@ -104,8 +113,7 @@
 
     <script>
         //Display:
-        const tela = document.getElementById('tela');
-        const ctx = tela.getContext('2d');
+        const relogio = document.getElementById('relogio');
         const display = document.getElementById('display');
 
 
@@ -136,10 +144,10 @@
         btnReiniciar.addEventListener('click', reiniciarTimer)
 
         //funções:
-
         function attDisplay(min, seg) {
             //Atualização do tempo:
             tempoSegundos = Number(display.value.slice(0, 2) * 60) + (Number(display.value.slice(3, 5)));
+            rel()
 
             //Atualização de mostrar no Display:
             const minF = String(min).padStart(2, '0');
@@ -164,6 +172,7 @@
                 e.target.style.backgroundColor = '#685aa1'
                 e.target.style.color = 'white'
                 e.target.textContent = '⏹ Stop'
+                relogio.style.border = '5px solid gray'
 
                 contando = true
 
@@ -222,6 +231,28 @@
             btnIniciar.style.backgroundColor = 'white'
             btnIniciar.style.color = '#685aa1'
             btnIniciar.textContent = '▶ Start'
+        }
+
+        function rel() {
+            if (tempoSegundos == 1) {
+                console.log('um quarto')
+                relogio.style.borderRight = '5px solid #53b28b'
+            }
+
+            if (tempoSegundos == Math.ceil(tempoInicial * 0.25)) {
+                console.log('um quarto')
+                relogio.style.borderTop = '5px solid #53b28b'
+            }
+
+            if (tempoSegundos == Math.ceil(tempoInicial * 0.5)) {
+                console.log('dois quartos')
+                relogio.style.borderLeft = '5px solid #53b28b'
+            }
+
+            if (tempoSegundos == Math.ceil(tempoInicial * 0.75)) {
+                console.log('treis quartos')
+                relogio.style.borderBottom = '5px solid #53b28b'
+            }
         }
 
     </script>
