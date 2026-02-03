@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+
+            background-color: gray;
+            height: 100%;
+            width: 100%;
+            margin: auto;
+        }
+
+        .msg {
+            width: 500px;
+            height: 500px;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 2em;
+        }
+
+        #msg1 {
+            background-color: brown;
+        }
+
+        #msg2 {
+            background-color: rgb(81, 81, 253);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <p class="msg" id="msg1">Mensagem: Oi, tudo bem?</p>
+        <p class="msg" id="msg2">Mensagem: Tudo certo?</p>
+    </div>
+    <button onclick="inverter()">inverter</button>
+
+    <script>
+        function inverter() {
+            const container = document.getElementById('container');
+
+            if (container.style.flexDirection == 'column') {
+                container.style.flexDirection = 'column-reverse'
+            } else {
+                container.style.flexDirection = 'column'
+            }
+        }
+    </script>
+</body>
+
+</html>
