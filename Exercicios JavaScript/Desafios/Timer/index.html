@@ -165,7 +165,7 @@
             console.log(`${minF}:${segF}`)
         }
 
-        function btnStart(e) {
+        function btnStart() {
             if (contando != true) {
 
                 tempoSegundos = Number(display.value.slice(0, 2) * 60) + (Number(display.value.slice(3, 5)));
@@ -177,9 +177,9 @@
                 }
 
                 //Style:
-                e.target.style.backgroundColor = '#685aa1'
-                e.target.style.color = 'white'
-                e.target.textContent = '⏹ Stop'
+                btnIniciar.style.backgroundColor = '#685aa1'
+                btnIniciar.style.color = 'white'
+                btnIniciar.textContent = '⏹ Stop'
                 relogio.style.border = '5px solid gray'
 
                 contando = true
@@ -209,8 +209,16 @@
         }
 
         function pauseTimer() {
-            console.log("Timer parado!")
-            clearInterval(interval)
+            if (contando == true) {
+                console.log("Timer parado!")
+                clearInterval(interval)
+                contando = false
+                btnPause.textContent = '▶'
+            } else {
+                btnStart()
+                console.log("Timer rodando!")
+                btnPause.textContent = '❚❚'
+            }
         }
 
         function reiniciarTimer() {
@@ -226,6 +234,7 @@
             btnIniciar.style.backgroundColor = 'white'
             btnIniciar.style.color = '#685aa1'
             btnIniciar.textContent = '▶ Start'
+            btnPause.textContent = '❚❚'
         }
 
         function pararTimer() {
@@ -243,12 +252,12 @@
 
         function rel() {
             if (tempoSegundos == 1) {
-                console.log('um quarto')
+                console.log('Inteiro')
                 relogio.style.borderRight = '5px solid #53b28b'
             }
 
             if (tempoSegundos == Math.ceil(tempoInicial * 0.25)) {
-                console.log('um quarto')
+                console.log('tres quartos')
                 relogio.style.borderTop = '5px solid #53b28b'
             }
 
@@ -258,7 +267,7 @@
             }
 
             if (tempoSegundos == Math.ceil(tempoInicial * 0.75)) {
-                console.log('treis quartos')
+                console.log('um quarto')
                 relogio.style.borderBottom = '5px solid #53b28b'
             }
         }
